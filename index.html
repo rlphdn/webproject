@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+
+html {
+  scroll-behavior: smooth;
+}
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background: #333;
+      color: #fff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      display: none; 
+      margin: 2rem 0;
+    }
+
+    section.animate {
+      display: block;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    #better-view {
+      text-align: center;
+      padding: 2rem;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      margin-top: 2rem;
+      border-radius: 8px;
+    }
+
+    #better-view a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #better-view a:hover {
+      background: #0056b3;
+    }
+
+    
+    #about {
+      display: none; 
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <h1>Welcome to My Portfolio</h1>
+    <p><a href="#about" class="step" data-step="0">Let’s Begin</a></p>
+  </header>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I'm Ralph Adrian Quindoza, a passionate web and software developer. I specialize in HTML, CSS, JavaScript for creating dynamic, responsive websites, as well as Java and Python for building robust, scalable applications. I love transforming ideas into functional code and enjoy solving complex problems through programming.</p>
+      <p>What do I do? <a href="#skills" class="step" data-step="1">Find out!</a></p>
+    </section>
+
+    <section id="skills">
+      <h2>My Skills</h2>
+      <ul>
+        <li>HTML/CSS</li>
+        <li>JavaScript</li>
+        <li>Java</li>
+        <li>Python</li>
+      </ul>
+      <p>Ready to contact me?  <a href="#contact" class="step" data-step="2">Let’s Connect!</a></p>
+    </section>
+    
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out!</p>
+      <p>Email: <a href="mailto:your-email@example.com">ralphadrianquindoza@gmail.com</a></p>
+      <p>Facebook: <a href="https://facebook.com" target="_blank">My Facebook</a></p>
+      <p>GitHub: <a href="https://github.com/" target="_blank">My GitHub</a></p>
+    </section>
+
+    <section id="better-view" style="display: none;">
+      <h2>Want to See a Better View?</h2>
+      <p>Check out the main website for a more comprehensive view of my work!</p>
+      <a href="main.html" target="_blank">Go to Main Website</a>
+    </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('.step').forEach((link) => {
+  link.addEventListener('click', function (event) {
+    event.preventDefault();
+    const sectionId = this.getAttribute('href').substring(1);
+    const section = document.getElementById(sectionId);
+    section.classList.add('animate');
+
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (sectionId === 'about') {
+      section.style.display = 'block';
+    }
+
+    if (sectionId === 'contact') {
+      const betterViewSection = document.getElementById('better-view');
+      betterViewSection.style.display = 'block';
+      betterViewSection.classList.add('animate');
+    }
+  });
+});
+
+  </script>
+  
+</body>
+</html>
